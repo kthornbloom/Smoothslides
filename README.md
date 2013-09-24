@@ -4,7 +4,7 @@ A simple, lightweight, and responsive jQuery slideshow by <a href="http://kthorn
 
 
 ##Demo
-http://kthornbloom.com/smoothbox/demo.html
+http://kthornbloom.com/kenburns
 
 ##Features
 
