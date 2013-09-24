@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=0;">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset='utf-8'> 
+<head>
+<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- META ===================================================== --> 
+    <title>Ken Burns Slideshow Demo</title> 
+    <meta name="description" content="A lightweight and dead simple lightbox script"> 
+
+<!-- Favicon  ========================================== --> 
+	<link rel="icon" href="favicon.ico">
+
+<!-- CSS ====================================================== --> 
+	<link rel="stylesheet" href="css/kenburns.styles.css">
+	<!-- Demo CSS (don't use) -->
+	<style type="text/css">
+		body, html {
+			padding:0px;
+			margin:0px;
+			background: #eee;
+		}
+		.page{
+			padding: 5px 30px 30px 30px;
+			max-width: 800px;
+			margin: 0 auto;
+			font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+			background: #fff;
+			box-shadow:0px 2px 3px #ccc;
+		}
+		a:link,
+		a:visited {
+			color:#5BC9B7;
+		}
+		a:hover {
+			color:#449a8c;
+		}
+		pre {
+			background: #333;
+			padding: 10px;
+			overflow: auto;
+			color: #BBB7A9;
+			}
+		#hub {
+			text-decoration: none;
+			color: #5BC9B7;
+			border: 2px solid #5BC9B7;
+			padding: 6px 10px;
+			display: inline-block;
+			border-radius: 5px;
+			font-size: 18px;
+		}
+		#hub:hover {
+			background:#5BC9B7;
+			color:#fff;
+		}
+		.demo {
+			text-align: center;
+			padding:30px 0
+		}
+	</style>
+
+</head>
+<body>
+<br>
+<div class="page">
+<h1>Ken Burns Slideshow</h1>
+A simple, lightweight, and responsive jQuery slideshow by <a href="http://kthornbloom.com">Kevin Thornbloom</a> that features <a href="http://en.wikipedia.org/wiki/Ken_Burns_effect" target="_blank">Ken Burns</a> type animations.
+
+<div class="demo">
+	<!-- markup for slideshow -->
+	<div class="kb-slides">
+	    <div class="kb-slide">
+	        <img src="images/1.jpg" />
+	    </div>
+	    <div class="kb-slide" title="Woof.">
+	        <img src="images/2.jpg" />
+	    </div>
+	    <div class="kb-slide" title="Who brought the smores?">
+	        <img src="images/3.jpg" />
+	    </div>
+	    <div class="kb-slide" title="Looks like rain.">
+	        <img src="images/4.jpg" />
+	    </div>
+	    
+	</div>
+</div>
+<br>
+
+
+<h2>Features</h2>
+<ul>
+	<li>Lightweight [3.5Kb]</li>
+	<li>Four Animation Types: Zoom In, Zoom Out, Pan Left, Pan Right</li>
+	<li>Easily add captions</li>
+	<li>CSS3 transitions for smoother effects</li>
+	<li>Responsive image sizes (resize this page)</li>
+</ul>
+
+<h2>Usage</h2>
+<ol>
+	<li>Include jQuery, kenburns.slides.js, and kenburns.styles.css
+		<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;css/kenburns.styles.css&quot;&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/kenburns.slides.js&quot;&gt;&lt;/script&gt;
+</pre></code>
+	</li>
+	<li>Create a div with a class of "kb-slides". Create each slide within as a div called "kb-slide" and place your image inside. Images should be the same size.
+		<code><pre>&lt;div class=&quot;kb-slides&quot;&gt;<br/>	    &lt;div class=&quot;kb-slide&quot;&gt;<br/>	        &lt;img src=&quot;images/1.jpg&quot; /&gt;<br/>	    &lt;/div&gt;<br/>	    &lt;div class=&quot;kb-slide&quot;&gt;<br/>	        &lt;img src=&quot;images/2.jpg&quot; /&gt;<br/>	    &lt;/div&gt;<br/>	    &lt;div class=&quot;kb-slide&quot;&gt;<br/>	        &lt;img src=&quot;images/3.jpg&quot; /&gt;<br/>	    &lt;/div&gt;<br/>	    &lt;div class=&quot;kb-slide&quot;&gt;<br/>	        &lt;img src=&quot;images/4.jpg&quot; /&gt;<br/>	    &lt;/div&gt;<br/>&lt;/div&gt;</pre></code>
+	</li>
+	<li>Want a caption? Add a title attribute to your "kb-slide" div.
+		<pre><code>&lt;div class=&quot;kb-slide&quot; title=&quot;Who brought the smores?&quot;&gt;
+	&lt;img src=&quot;images/3.jpg&quot; /&gt;
+&lt;/div&gt;</pre></code>
+	</li>
+</ol>
+
+
+
+<h2>Customization</h2>
+The slideshow will randomly pick animation effects as it plays. The timing of the slideshow is set in this line within the javascript file:
+<code><pre>
+var playTimer = 4000
+</pre></code>
+This is in milliseconds. The styling of the slideshow can be changed by editing the kenburns.styles.css file.
+
+
+
+<h2>Download</h2>
+<a href="https://github.com/kthornbloom/Ken_Burns_Slideshow" id="hub">Find me on Github</a>
+</div><br>
+<!-- JS ======================================================= --> 
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+	<script type="text/javascript" src="js/kenburns.slides.js"></script>
+	
+</body>
+</html>
