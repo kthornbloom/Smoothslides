@@ -1,4 +1,4 @@
-#Ken Burns SLideshow [WIP]
+#Ken Burns SLideshow
 ===================
 A simple, lightweight, and responsive jQuery slideshow by <a href="http://kthornbloom.com" target="_blank">Kevin Thornbloom</a> that features Ken Burns type animations.
 
