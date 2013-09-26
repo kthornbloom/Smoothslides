@@ -22,7 +22,9 @@ $(document).ready(function() {
   $('.kb-slides-wrap').append('<div class="kb-caption"></div><a href="#" id="kb-prev">Prev</a><a href="#" id="kb-next">Next</a>');
    var caption = $('.kb-slide:last').attr('title');
   $('.kb-caption').html(caption);
-playZoomout();
+
+  firstPlay();
+
   function captionUpdater() {
       if ($('.kb-slide:eq(-2)').attr('title')) {
             var caption = $('.kb-slide:eq(-2)').attr('title');
@@ -31,6 +33,22 @@ playZoomout();
             else {
                   $('.kb-caption').empty().hide();
       }
+  }
+
+ function firstPlay() {
+ 	 captionUpdater();
+    $('.kb-slide:last').addClass('notrans').css({
+        'webkitTransform':'scale(1.2) rotate(2deg)',
+        'msTransform': 'scale(1.2) rotate(2deg)',
+        'transform': 'scale(1.2) rotate(2deg)'
+    });
+    setTimeout( function() {
+        $('.kb-slide:last').removeClass('notrans').css({
+            'webkitTransform':'scale(1) rotate(0deg)',
+            'msTransform':'scale(1) rotate(0deg)',
+            'transform':'scale(1) rotate(0deg)'
+        });
+    }, 100);
   }
 
  function playZoomin() {
