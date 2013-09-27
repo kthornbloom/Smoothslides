@@ -20,6 +20,13 @@ http://kthornbloom.com/kenburns
 - Create a div with a class of "kb-slides". Create each slide within as a div called "kb-slide" and place your image inside. Images should be the same size. 
 - Want a caption? Add a title attribute to your "kb-slide" div.
 
+##Browser Support
+- Full support: Chrome, Safari, Firefox (16+), Internet Explorer (9+)
+- Supported without transitions: Internet Explorer 7-8, Firefox (-16)
+- Unsupported: Internet Explorer 6
+
+		
+
 ##Licensing
 Free to use and modify personally or commercially. Not for resale. 
 
