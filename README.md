@@ -12,7 +12,7 @@ http://kthornbloom.com/smoothslides
 - Four Animation Types: Zoom In, Zoom Out, Pan Left, Pan Right
 - Easily add captions
 - CSS3 transitions for smoother effects
-- Responsive image sizes (resize this page)
+- Responsive image sizes
 
 ##Usage
 
