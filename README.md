@@ -1,10 +1,10 @@
-#Ken Burns Slideshow
+#Smoothslides
 ===================
 A simple, lightweight, and responsive jQuery slideshow by <a href="http://kthornbloom.com" target="_blank">Kevin Thornbloom</a> that features Ken Burns type animations.
 
 
 ##Demo
-http://kthornbloom.com/kenburns
+http://kthornbloom.com/smoothslides
 
 ##Features
 
@@ -16,9 +16,9 @@ http://kthornbloom.com/kenburns
 
 ##Usage
 
-- Include jQuery, kenburns.slides.js, and kenburns.styles.css
-- Create a div with a class of "kb-slides". Create each slide within as a div called "kb-slide" and place your image inside. Images should be the same size. 
-- Want a caption? Add a title attribute to your "kb-slide" div.
+- Include jQuery, smoothslides.js, and smoothslides.css
+- Create a div with a class of "ss-slides". Create each slide within as a div called "ss-slide" and place your image inside. Images should be the same size. 
+- Want a caption? Add a title attribute to your "ss-slide" div.
 
 ##Browser Support
 - Full support: Chrome, Safari, Firefox (16+), Internet Explorer (9+)
