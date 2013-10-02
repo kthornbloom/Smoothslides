@@ -1,5 +1,5 @@
 /*
-Ken Burns Slideshow
+Smoothslides
 by Kevin Thornbloom - http://www.kthornbloom.com
 
 Licensed under the Creative Commons Attribution 2.5 License - http://creativecommons.org/licenses/by/2.5/
