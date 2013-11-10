@@ -4,12 +4,11 @@
     line-height: 0px;
     overflow: hidden;
     border-radius: 6px;
-    box-shadow: 0px 8px 15px #A7A7A7;
 }
 .ss-caption {
-    background:rgb(0,0,0);
-    background:rgba(0,0,0,.7);
-    color:#fff;
+    background:rgb(255,255,255);
+    background:rgba(255,255,255,.7);
+    color:#555;
     width:100%;
     padding:15px 0;
     font-family:sans-serif;
@@ -60,7 +59,9 @@
     font-size: 14px;
     line-height: 1em;
     display: inline-block;
-    background:#000;
+    background:rgb(255,255,255);
+    background:rgba(255,255,255,.7);
+    color:#000;
     padding:8px;
     text-decoration: none;
 }
