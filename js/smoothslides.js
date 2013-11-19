@@ -1,11 +1,11 @@
 /*
-Smoothslides
-by Kevin Thornbloom - http://www.kthornbloom.com
-
-Licensed under the Creative Commons Attribution 2.5 License - http://creativecommons.org/licenses/by/2.5/
-- free for use in both personal and commercial projects
-- attribution requires leaving author name, author link, and the license info intact
-*/
+ * Smoothslides
+ * http://kthornbloom.com/smoothslides.php
+ *
+ * Copyright 2013, Kevin Thornbloom
+ * Free to use and abuse under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
 
 $(document).ready(function() {
   var playTimer = 4000
