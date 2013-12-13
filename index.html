@@ -89,42 +89,17 @@ A simple, lightweight, and responsive jQuery slideshow by <a href="http://kthorn
 </div>
 <br>
 
-
-<h2>Features</h2>
-<ul>
-	<li>Lightweight [3.5Kb]</li>
-	<li>Four Animation Types: Zoom In, Zoom Out, Pan Left, Pan Right</li>
-	<li>Easily add captions</li>
-	<li>CSS3 transitions for smoother effects</li>
-	<li>Responsive image sizes (resize this page)</li>
-</ul>
-
-<h2>Usage</h2>
-<ol>
-	<li>Include jQuery, smoothslides.js, andsmoothslides.css</li>
-	<li>Create a div with a class of "ss-slides". Create each slide within as a div called "ss-slide" and place your image inside. Images should be the same size.</li>
-	<li>Want a caption? Add a title attribute to your "ss-slide" div.</li>
-</ol>
-
-
-
-<h2>Customization</h2>
-The slideshow will randomly pick animation effects as it plays. The timing of the slideshow is set in milliseconds via the playTimer variable within the javascript file.
-The styling of the slideshow can be changed by editing the kenburns.styles.css file.
-
-<h2>Browser Support</h2>
-<ul>
-	<li>Full support: Chrome, Safari, Firefox (16+), Internet Explorer (9+)</li>
-	<li>Supported without transitions: Internet Explorer 7-8, Firefox (-16)</li>
-	<li>Unsupported: Internet Explorer 6</li>
-</ul>
-
-<h2>Download</h2>
-<a href="https://github.com/kthornbloom/Smoothslides" id="hub">Find me on Github</a>
+<h2>Download & Info</h2>
+<a href="https://github.com/kthornbloom/Smoothslides" id="hub">Github</a>
 </div><br>
 <!-- JS ======================================================= --> 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
-	<script type="text/javascript" src="js/smoothslides.js"></script>
-	
+	<script type="text/javascript" src="js/smoothslides.min.js"></script>
+	<script type="text/javascript">
+$(window).load( function() {
+    // use default options
+    $(document).smoothSlides();
+});
+</script>
 </body>
 </html>
