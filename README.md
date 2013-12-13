@@ -9,7 +9,7 @@ http://kthornbloom.com/smoothslides
 ##Features
 
 - Lightweight [6Kb]
-- Four Animation Types: Zoom In, Zoom Out, Pan Left, Pan Right, Pan Up, Pan Down
+- Choose between six animation types, or let it randomize
 - Easily add captions
 - CSS3 transitions for smoother effects
 - Responsive image sizes
