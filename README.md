@@ -1,5 +1,4 @@
 #Smoothslides
-===================
 A simple, lightweight, and responsive jQuery slideshow by <a href="http://kthornbloom.com" target="_blank">Kevin Thornbloom</a> that features Ken Burns type animations.
 
 
@@ -21,11 +20,16 @@ http://kthornbloom.com/smoothslides
 - Create a div with a class of "ss-slides". Create each slide within as a div called "ss-slide" and place your image inside. Images should be the same size. 
 - Want a caption? Add a title attribute to your "ss-slide" div.
 - Call your script:
+`````javascript
 <script type="text/javascript">
-$(window).load( function() {
-    $(document).smoothSlides();
+	$(window).load( function() {
+	$(document).smoothSlides();
 });
+`````
+
 - Or, to specify options, call your script like this: 
+`````javascript
+<script type="text/javascript">
 $(window).load( function() {
     $(document).smoothSlides({
     	/* milliseconds */
@@ -41,7 +45,7 @@ $(window).load( function() {
     });
 });
 </script>
-
+`````
 
 
 ##Browser Support
