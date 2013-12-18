@@ -1,7 +1,5 @@
 #Smoothslides
-A simple, lightweight, and responsive jQuery slideshow by <a href="http://kthornbloom.com" target="_blank">Kevin Thornbloom</a> that features Ken Burns type animations.
-
-<b>New- Added user customizable settings along with pan up & pan down effects</b>
+A simple, lightweight, and responsive jQuery slideshow by <a href="http://kthornbloom.com" target="_blank">Kevin Thornbloom</a> that features Ken Burns type animations. Now with tons of user customizable options!
 
 ##Demo and Usage Info
 http://kthornbloom.com/smoothslides.php
