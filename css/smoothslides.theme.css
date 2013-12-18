@@ -92,6 +92,7 @@
     background: #FFF;
     text-decoration: none;
     border-radius: 30px;
+    text-align: center;
 }
 #ss-prev:hover, #ss-next:hover {
     color:#000;
