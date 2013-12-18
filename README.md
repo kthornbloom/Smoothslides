@@ -8,7 +8,6 @@ http://kthornbloom.com/smoothslides.php
 
 ##Licensing
 Free to use and modify personally or commercially. Not for resale. 
->>>>>>> 843024d0401743e8891429e8b881fcf375ecfbed
 
 ##Help & Feedback
 Connect with me on <a href="https://twitter.com/kthornbloom" target="_blank">twitter.</a>
