@@ -11,6 +11,11 @@
     text-align: center;
 }
 .ss-caption {
+    background: #444444; 
+    border-radius:4px;
+    color:#fff;    
+    padding:15px 10px;
+    font-family:sans-serif;
     font-size:16px;
     display: inline-block;
 }
@@ -18,20 +23,27 @@
     position: absolute;
     text-align: center;
     width: 100%;
+    padding-top:5px;
 }
 .ss-paginate {
     display: inline-block;
-    font-size: 20px; 
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background: #444444;  
 }
 .ss-paginate a:link,
 .ss-paginate a:visited {
     display: inline-block;
     width: 12px;
     height: 12px;
-    background: #ccc;
+    border-radius: 6px;
+    margin: 3px 6px;
+    background: #FFF;
 }
 .ss-current {
-    background:#000!important;
+    background:#36f9a5!important;
+    box-shadow: inset 0 1px 0 #fff, 0 0 0 3px rgba(54, 249, 165, 0.27), 0 2px 2px #000;
 }
 .ss-slides {
     position:relative;
@@ -67,8 +79,22 @@
 }
 #ss-prev, #ss-next {
     position: absolute;
+    top: 50%;
+    z-index: 50;
+    font-size: 55px;
+    font-family: serif;
+    margin-top: -20px;
+    line-height: 31px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    color: #a7a7a7;
+    background: #FFF;
+    text-decoration: none;
+    border-radius: 30px;
 }
 #ss-prev:hover, #ss-next:hover {
+    color:#000;
 }
 #ss-prev {
     left:-23px;
