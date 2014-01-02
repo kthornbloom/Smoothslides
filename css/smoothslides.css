@@ -1,6 +1,6 @@
 .ss-slides-wrap {
     position: relative;
-    display: inline-block;
+    display: block;
     line-height: 0px;
 }
 .ss-capwrap {
@@ -36,7 +36,7 @@
 .ss-slides {
     position:relative;
     overflow:hidden;
-    display:inline-block;
+    display:block;
     transform-origin:50% 50%;
     -ms-transform-origin:50% 50%;
     -webkit-transform-origin:50% 50%;
@@ -45,6 +45,7 @@
     top:0;
     left:0;
     position: absolute;
+    width:100%;
     zoom: 1;
     line-height:0;
     -webkit-backface-visibility: hidden;
