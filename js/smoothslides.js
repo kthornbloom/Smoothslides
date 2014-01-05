@@ -2,8 +2,8 @@
  * Smoothslides
  * http://kthornbloom.com/smoothslides.php
  *
- * Copyright 2013, Kevin Thornbloom
- * Free to use and abuse under the MIT license.
+ * Copyright 2014, Kevin Thornbloom
+ * Free to use and modify under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
  */
 
@@ -13,20 +13,21 @@
 
             // These are overridden by options declared in footer
             var defaults = {
-                playTimer: 3000,
+                playTimer: 6000,
                 animEasing: 'ease-in-out',
                 autoanimType: 'random',
-                nextText: '›',
-                prevText: '‹',
+                nextText: ' ►',
+                prevText: '◄ ',
                 captions: 'true',
                 navigation: 'true',
-                pagination: 'true'
+                pagination: 'true',
+                order: 'normal'
             }
 
             var options = $.extend(defaults, options),
                 convertSeconds = (options.playTimer / 1000) - .5
 
-                /* Set CSS transition timing and easing */
+                /* Set CSS transition timing and easing */  
                 $('.ss-slide').css({
                     'webkitTransition': 'all ' + convertSeconds + 's ' + options.animEasing,
                         'mozTransition': 'all ' + convertSeconds + 's ' + options.animEasing,
@@ -34,27 +35,55 @@
                         'oTransition': 'all ' + convertSeconds + 's ' + options.animEasing,
                         'transition': 'all ' + convertSeconds + 's ' + options.animEasing
                 });
-
+            // Set some inline styles & add markup
             $('.ss-slide:last').css('position', 'relative');
             $('.ss-slides').wrap('<div class="ss-slides-wrap"></div>');
+
+            // Randomizer Function
+            $.fn.randomize = function(selector){
+                (selector ? this.find(selector) : this).parent().each(function(){
+                    $(this).children(selector).sort(function(){
+                        return Math.random() - 0.5;
+                    }).detach().appendTo(this);
+                });
+
+                return this;
+            };
+
+            // Add Captions
             if (options.captions == 'true') {
                 $('.ss-slides-wrap').append('<div class="ss-capwrap"><div class="ss-caption"></div></div>');
             }
             var caption = $('.ss-slide:last').attr('title');
             $('.ss-caption').html(caption);
 
+            // Add Pagination
             if (options.pagination == 'true') {
                 $('.ss-slides-wrap').append('<div class="ss-pag-wrap"><div class="ss-paginate"></div></div>');
                 $('.ss-slide').each(function () {
                     $('.ss-paginate').append('<a href="#"></a>');
                 });
-                $('.ss-paginate a:first').addClass('ss-current');
+                $('.ss-paginate a:last').addClass('ss-current');
             }
+
+            // Add Navigation
             if (options.navigation == 'true') {
                 $('.ss-slides-wrap').append('<a href="#" id="ss-prev">' + options.prevText + '</a><a href="#" id="ss-next">' + options.nextText + '</a>');
             }
 
+            // Order
+            if (options.order == 'normal') {                
+                $('.ss-slide').each(function() {
+                    $(this).prependTo(this.parentNode);
+                });
+                $('.ss-slide:first').appendTo('.ss-slides');
+            } else if (options.order == 'random') {
+                $('.ss-slide').randomize();
+            } else if (options.order == 'reverse') {
+                $('.ss-slide:first').appendTo('.ss-slides');
+            }
 
+            // Update Caption function
             function captionUpdater() {
                 if ($('.ss-slide:eq(-2)').attr('title')) {
                     var caption = $('.ss-slide:eq(-2)').attr('title');
@@ -66,6 +95,7 @@
                 }
             }
 
+            // Update Pagination forwards
             function paginateForwards() {                
                 var currentDot = ($('.ss-current').index()) + 1,
                     nextSlide = currentDot + 1,
@@ -79,6 +109,7 @@
                 }
             }
 
+            // Updated Pagination reverse
             function paginateBackwards() {                
                 var currentDot = ($('.ss-current').index()) + 1,
                     nextSlide = currentDot - 2,
@@ -91,6 +122,10 @@
                     $('.ss-paginate a').eq(nextSlide).addClass('ss-current');
                 }
             }
+
+            /* ======================= */
+                    //Effects
+            /* ======================= */
 
             function crossFade() {
                 captionUpdater();
@@ -237,14 +272,14 @@
                 });
             }
 
-            /* Start First Animation */
+            // Start First Animation 
             if (options.autoanimType == 'random') {
                 var fns = [zoomOut, zoomIn, panRight, panLeft];
                 fns[Math.floor(Math.random() * fns.length)]();
             } else if (options.autoanimType == 'false') {
                 //
             } else {
-                eval(options.autoanimType + "()");
+                    eval(options.autoanimType + "()");
             }
 
             /* Subsequent Auto Animations */
@@ -326,7 +361,8 @@
                     $('.ss-slide:last').prependTo('.ss-slides').removeClass('notrans').css({
                         'webkitTransform': 'scale(1) rotate(0deg)',
                             'msTransform': 'scale(1) rotate(0deg)',
-                            'transform': 'scale(1) rotate(0deg)'
+                            'transform': 'scale(1) rotate(0deg)',
+                            'display':'none'
                     }).show();
                     $('.ss-current').removeClass();
                     $('.ss-paginate a').eq(whichClicked-1).addClass('ss-current');

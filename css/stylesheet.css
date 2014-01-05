@@ -1,0 +1,97 @@
+/**************************************/
+/* THIS IS UNRELATED TO THE SLIDESHOW */
+/**************************************/
+
+body, html {
+	padding:0px;
+	margin:0px;
+	background: #4C86DD;
+	color:#fff;
+	font-size: 18px;	
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+	text-align: center;
+}
+header {
+	background:#fff;
+	color:#555;
+	font-size: 14px;
+}
+header i {
+	background:#999;
+	color:#fff;
+	width:18px;
+	height:18px;
+	display: inline-block;
+	border-radius:9px;
+}
+.head-centering {	
+	max-width: 900px;
+	margin:0 auto;
+	padding:30px;
+}
+header h1 {
+	font-size: 60px;
+}
+.page{
+	padding: 5px 0px 30px 0px;
+	max-width: 800px;
+	margin: 0 auto;
+}
+.page ul {
+	text-align: left;
+	display: block;
+	margin: 0 auto;
+	background: #407AC4;
+	max-width: 900px;
+	padding: 30px 60px;
+}
+header a:link,
+header a:visited {
+	color:#222;
+}
+hr {
+	border:0;
+	border-bottom: 2px solid #fff;
+}
+a:hover {
+	color:#449a8c;
+}
+pre {
+	background: #333;
+	padding: 10px;
+	overflow: auto;
+	color: #BBB7A9;
+}
+.button {
+	text-decoration: none;
+	color: #fff;
+	background: none;
+	text-align: center;
+	border: 2px solid #fff;
+	padding: 8px 15px 12px 15px;
+	margin:5px 0;
+	display: inline-block;
+	font-size: 20px;
+	line-height: 1em;
+}
+.button:hover {
+	background:#fff;
+	color:#4C86DD;
+}
+.demo-centering {
+	max-width: 800px;
+	margin:0 auto;
+	padding:30px 30px 40px 30px;
+	-webkit-transition:padding .4s ease-out;
+}
+
+@media all and (max-width: 768px) {
+	.demo-centering {
+		padding:0 0 40px 0;
+	}
+}
+@media all and (max-width: 450px) {
+	header h1 {
+		font-size: 30px;
+	}
+}

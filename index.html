@@ -18,58 +18,17 @@
 <!-- CSS ====================================================== --> 
 	<link rel="stylesheet" href="css/smoothslides.theme.css">
 	<!-- Demo CSS (don't use) -->
-	<style type="text/css">
-		body, html {
-			padding:0px;
-			margin:0px;
-			background: #fff;
-		}
-		.page{
-			padding: 5px 30px 30px 30px;
-			max-width: 800px;
-			margin: 0 auto;
-			font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
-		}
-		a:link,
-		a:visited {
-			color:#5BC9B7;
-		}
-		a:hover {
-			color:#449a8c;
-		}
-		pre {
-			background: #333;
-			padding: 10px;
-			overflow: auto;
-			color: #BBB7A9;
-			}
-		#hub {
-			text-decoration: none;
-			color: #5BC9B7;
-			border: 2px solid #5BC9B7;
-			padding: 6px 10px;
-			display: inline-block;
-			border-radius: 5px;
-			font-size: 18px;
-		}
-		#hub:hover {
-			background:#5BC9B7;
-			color:#fff;
-		}
-		.demo {
-			text-align: center;
-			padding:30px 0
-		}
-	</style>
-
+	<link rel="stylesheet" href="css/stylesheet.css">
 </head>
 <body>
-<br>
-<div class="page">
+<header>
+	<div class="head-centering">
 <h1>Smoothslides</h1>
-A simple, lightweight, and responsive jQuery slideshow by <a href="http://kthornbloom.com">Kevin Thornbloom</a> that features <a href="http://en.wikipedia.org/wiki/Ken_Burns_effect" target="_blank">Ken Burns</a> type animations.
+<i>?</i> A responsive jQuery slideshow with beautiful panning effects on each image. Created by <a href="https://twitter.com/kthornbloom" target="_blank">Kevin Thornbloom</a>
+	</div>
+</header>
 
-<div class="demo">
+<div class="demo-centering">
 	<!-- markup for slideshow -->
 	<div class="ss-slides">
 	    <div class="ss-slide">
@@ -84,20 +43,27 @@ A simple, lightweight, and responsive jQuery slideshow by <a href="http://kthorn
 	    <div class="ss-slide" title="Valley">
 	        <img src="images/4.jpg" />
 	    </div>
+	    <div class="ss-slide" title="Waves">
+	        <img src="images/5.jpg" />
+	    </div>
 	    
 	</div>
 </div>
+
+<div class="page">
 <br>
-<h2>Help</h2>
-<a href="http://kthornbloom.com/smoothslides.php" id="hub">Usage & Info</a>
-<a href="https://github.com/kthornbloom/Smoothslides" id="hub">Download</a>
-</div><br>
+<a href="https://github.com/kthornbloom/Smoothslides" class="button">Download & Docs</a>
+
 <!-- JS ======================================================= --> 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
 	<script type="text/javascript" src="js/smoothslides.min.js"></script>
 	<script type="text/javascript">
+		/* wait for images to load */
 		$(window).load( function() {
-			$(document).smoothSlides();
+			$(document).smoothSlides({
+			playTimer: 4000
+			/* options seperated by commas */
+			});
 		});
 	</script>
 </body>
