@@ -5,7 +5,7 @@
 body, html {
 	padding:0px;
 	margin:0px;
-	background: #4C86DD;
+	background: #F0353A;
 	color:#fff;
 	font-size: 18px;	
 	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
@@ -76,7 +76,7 @@ pre {
 }
 .button:hover {
 	background:#fff;
-	color:#4C86DD;
+	color:#F0353A;
 }
 .demo-centering {
 	max-width: 800px;

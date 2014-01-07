@@ -37,15 +37,15 @@
     height: 12px;
     border-radius: 6px;
     margin: 3px 6px;
-    background: #4C86DD;
+    background: #F0353A;
     -webkit-transition:all .2s ease-out;
 }
 .ss-paginate a:hover {
-    box-shadow: 0 0px 0 2px #2A89C5;
+    box-shadow: 0 0px 0 2px #F0353A;
 }
 .ss-current {
     background: #FFF!important;
-    box-shadow: 0 0px 0 2px #2A89C5;
+    box-shadow: 0 0px 0 2px #F0353A;
 }
 
 /* Previous & Next Buttons */
