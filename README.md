@@ -1,7 +1,7 @@
 #Smoothslides
 A responsive jQuery slideshow with beautiful panning effects on each image. Created by <a href="https://twitter.com/kthornbloom" target="_blank">Kevin Thornbloom</a>
 ##Demo
-<a href="http://kthornbloom.com/smoothslides.php" target="_blank">Demo Page</a>
+<a href="http://kthornbloom.com/smoothslides" target="_blank">Demo Page</a>
 ##Usage
 ###Include CSS in header
 ```
