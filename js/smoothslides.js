@@ -7,15 +7,16 @@
  * http://www.opensource.org/licenses/mit-license.php
  */
 
-(function ($) {
+(function($) {
     $.fn.extend({
-        smoothSlides: function (options) {
+        smoothSlides: function(options) {
 
             // These are overridden by options declared in footer
             var defaults = {
-                playTimer: 6000,
-                animEasing: 'ease-in-out',
-                autoanimType: 'random',
+                duration: 6000,
+                autoPlay: 'true',
+                effect: 'random',
+                effectEasing: 'ease-in-out',
                 nextText: ' ►',
                 prevText: '◄ ',
                 captions: 'true',
@@ -25,24 +26,24 @@
             }
 
             var options = $.extend(defaults, options),
-                convertSeconds = (options.playTimer / 1000) - .5
+                convertSeconds = (options.duration / 1000) - .5
 
-                /* Set CSS transition timing and easing */  
+                /* Set CSS transition timing and easing */
                 $('.ss-slide').css({
-                    'webkitTransition': 'all ' + convertSeconds + 's ' + options.animEasing,
-                        'mozTransition': 'all ' + convertSeconds + 's ' + options.animEasing,
-                        'msTransition': 'all ' + convertSeconds + 's ' + options.animEasing,
-                        'oTransition': 'all ' + convertSeconds + 's ' + options.animEasing,
-                        'transition': 'all ' + convertSeconds + 's ' + options.animEasing
+                    'webkitTransition': 'all ' + convertSeconds + 's ' + options.effectEasing,
+                    'mozTransition': 'all ' + convertSeconds + 's ' + options.effectEasing,
+                    'msTransition': 'all ' + convertSeconds + 's ' + options.effectEasing,
+                    'oTransition': 'all ' + convertSeconds + 's ' + options.effectEasing,
+                    'transition': 'all ' + convertSeconds + 's ' + options.effectEasing
                 });
             // Set some inline styles & add markup
             $('.ss-slide:last').css('position', 'relative');
             $('.ss-slides').wrap('<div class="ss-slides-wrap"></div>');
 
             // Randomizer Function
-            $.fn.randomize = function(selector){
-                (selector ? this.find(selector) : this).parent().each(function(){
-                    $(this).children(selector).sort(function(){
+            $.fn.randomize = function(selector) {
+                (selector ? this.find(selector) : this).parent().each(function() {
+                    $(this).children(selector).sort(function() {
                         return Math.random() - 0.5;
                     }).detach().appendTo(this);
                 });
@@ -54,16 +55,32 @@
             if (options.captions == 'true') {
                 $('.ss-slides-wrap').append('<div class="ss-capwrap"><div class="ss-caption"></div></div>');
             }
-            var caption = $('.ss-slide:last').attr('title');
-            $('.ss-caption').html(caption);
+            if (options.autoPlay == 'true') {
+                if ($('.ss-slide:last').attr('title')) {
+                    var caption = $('.ss-slide:last').attr('title');
+                    $('.ss-caption').html(caption);
+                }
+            } else {
+                if ($('.ss-slide:first').attr('title')) {
+                    var caption = $('.ss-slide:first').attr('title');
+                    $('.ss-caption').html(caption);
+                } else {
+                    $('.ss-caption').hide();
+                }
+
+            }
 
             // Add Pagination
             if (options.pagination == 'true') {
                 $('.ss-slides-wrap').append('<div class="ss-pag-wrap"><div class="ss-paginate"></div></div>');
-                $('.ss-slide').each(function () {
+                $('.ss-slide').each(function() {
                     $('.ss-paginate').append('<a href="#"></a>');
                 });
-                $('.ss-paginate a:last').addClass('ss-current');
+                if (options.autoPlay == 'true') {
+                    $('.ss-paginate a:last').addClass('ss-current');
+                } else {
+                    $('.ss-paginate a:first').addClass('ss-current');
+                }
             }
 
             // Add Navigation
@@ -72,11 +89,13 @@
             }
 
             // Order
-            if (options.order == 'normal') {                
+            if (options.order == 'normal') {
                 $('.ss-slide').each(function() {
                     $(this).prependTo(this.parentNode);
                 });
-                $('.ss-slide:first').appendTo('.ss-slides');
+                if (options.autoPlay == 'true') {
+                    $('.ss-slide:first').appendTo('.ss-slides');
+                }
             } else if (options.order == 'random') {
                 $('.ss-slide').randomize();
             } else if (options.order == 'reverse') {
@@ -89,14 +108,14 @@
                     var caption = $('.ss-slide:eq(-2)').attr('title');
                     $('.ss-caption').html(caption).fadeIn(500);
                 } else {
-                    $('.ss-caption').fadeOut(500, function () {
+                    $('.ss-caption').fadeOut(500, function() {
                         $('.ss-caption').empty();
                     });
                 }
             }
 
             // Update Pagination forwards
-            function paginateForwards() {                
+            function paginateForwards() {
                 var currentDot = ($('.ss-current').index()) + 1,
                     nextSlide = currentDot + 1,
                     totalSlides = $('.ss-paginate a').length;
@@ -110,7 +129,7 @@
             }
 
             // Updated Pagination reverse
-            function paginateBackwards() {                
+            function paginateBackwards() {
                 var currentDot = ($('.ss-current').index()) + 1,
                     nextSlide = currentDot - 2,
                     totalSlides = $('.ss-paginate a').length;
@@ -124,21 +143,21 @@
             }
 
             /* ======================= */
-                    //Effects
+            //Effects
             /* ======================= */
 
             function crossFade() {
                 captionUpdater();
                 paginateForwards();
-                $('.ss-slide:last').addClass('notrans').fadeOut("slow", function () {
+                $('.ss-slide:last').addClass('notrans').fadeOut("slow", function() {
                     $(this).prependTo('.ss-slides').removeClass('notrans').css({
                         'webkitTransform': 'scale(1) rotate(0deg)',
-                            'msTransform': 'scale(1) rotate(0deg)',
-                            'transform': 'scale(1) rotate(0deg)',
-                            'opacity':'0'
+                        'msTransform': 'scale(1) rotate(0deg)',
+                        'transform': 'scale(1) rotate(0deg)',
+                        'opacity': '0'
                     }).show();
                     $('.ss-slide:first').css({
-                            'opacity':'1'
+                        'opacity': '1'
                     });
 
                 });
@@ -147,16 +166,16 @@
             function zoomIn() {
                 captionUpdater();
                 paginateForwards();
-                $('.ss-slide:last').addClass('notrans').fadeOut("slow", function () {
+                $('.ss-slide:last').addClass('notrans').fadeOut("slow", function() {
                     $(this).prependTo('.ss-slides').removeClass('notrans').css({
                         'webkitTransform': 'scale(1) rotate(0deg)',
-                            'msTransform': 'scale(1) rotate(0deg)',
-                            'transform': 'scale(1) rotate(0deg)'
+                        'msTransform': 'scale(1) rotate(0deg)',
+                        'transform': 'scale(1) rotate(0deg)'
                     }).show();
                     $('.ss-slide:last').css({
                         'webkitTransform': 'scale(1.2)  rotate(2deg)',
-                            'msTransform': 'scale(1.2)  rotate(2deg)',
-                            'transform': 'scale(1.2)  rotate(2deg)'
+                        'msTransform': 'scale(1.2)  rotate(2deg)',
+                        'transform': 'scale(1.2)  rotate(2deg)'
                     });
 
                 });
@@ -167,19 +186,19 @@
                 paginateForwards();
                 $('.ss-slide:eq(-2)').addClass('notrans').css({
                     'webkitTransform': 'scale(1.2) rotate(2deg)',
-                        'msTransform': 'scale(1.2) rotate(2deg)',
-                        'transform': 'scale(1.2) rotate(2deg)'
+                    'msTransform': 'scale(1.2) rotate(2deg)',
+                    'transform': 'scale(1.2) rotate(2deg)'
                 });
-                $('.ss-slide:last').addClass('notrans').fadeOut("slow", function () {
+                $('.ss-slide:last').addClass('notrans').fadeOut("slow", function() {
                     $(this).prependTo('.ss-slides').removeClass('notrans').css({
                         'webkitTransform': 'scale(1) rotate(0deg)',
-                            'msTransform': 'scale(1) rotate(0deg)',
-                            'transform': 'scale(1) rotate(0deg)'
+                        'msTransform': 'scale(1) rotate(0deg)',
+                        'transform': 'scale(1) rotate(0deg)'
                     }).show();
                     $('.ss-slide:last').removeClass('notrans').css({
                         'webkitTransform': 'scale(1) rotate(0deg)',
-                            'msTransform': 'scale(1) rotate(0deg)',
-                            'transform': 'scale(1) rotate(0deg)'
+                        'msTransform': 'scale(1) rotate(0deg)',
+                        'transform': 'scale(1) rotate(0deg)'
                     });
                 });
             }
@@ -189,19 +208,19 @@
                 paginateForwards();
                 $('.ss-slide:eq(-2)').addClass('notrans').css({
                     'webkitTransform': 'scale(1.3) translate(-10%, 0)',
-                        'msTransform': 'scale(1.3) translate(-10%, 0)',
-                        'transform': 'scale(1.3) translate(-10%, 0)'
+                    'msTransform': 'scale(1.3) translate(-10%, 0)',
+                    'transform': 'scale(1.3) translate(-10%, 0)'
                 });
-                $('.ss-slide:last').addClass('notrans').fadeOut("slow", function () {
+                $('.ss-slide:last').addClass('notrans').fadeOut("slow", function() {
                     $(this).prependTo('.ss-slides').removeClass('notrans').css({
                         'webkitTransform': 'scale(1) rotate(0deg)',
-                            'msTransform': 'scale(1) rotate(0deg)',
-                            'transform': 'scale(1) rotate(0deg)'
+                        'msTransform': 'scale(1) rotate(0deg)',
+                        'transform': 'scale(1) rotate(0deg)'
                     }).show();
                     $('.ss-slide:last').removeClass('notrans').css({
                         'webkitTransform': 'scale(1.3) translate(0,0)',
-                            'msTransform': 'scale(1.3) translate(0,0)',
-                            'transform': 'scale(1.3) translate(0,0)'
+                        'msTransform': 'scale(1.3) translate(0,0)',
+                        'transform': 'scale(1.3) translate(0,0)'
                     });
                 });
             }
@@ -211,19 +230,19 @@
                 paginateForwards();
                 $('.ss-slide:eq(-2)').addClass('notrans').css({
                     'webkitTransform': 'scale(1.3) translate(10%, 0)',
-                        'msTransform': 'scale(1.3) translate(10%, 0)',
-                        'transform': 'scale(1.3) translate(10%, 0)'
+                    'msTransform': 'scale(1.3) translate(10%, 0)',
+                    'transform': 'scale(1.3) translate(10%, 0)'
                 });
-                $('.ss-slide:last').addClass('notrans').fadeOut("slow", function () {
+                $('.ss-slide:last').addClass('notrans').fadeOut("slow", function() {
                     $(this).prependTo('.ss-slides').removeClass('notrans').css({
                         'webkitTransform': 'scale(1) rotate(0deg)',
-                            'msTransform': 'scale(1) rotate(0deg)',
-                            'transform': 'scale(1) rotate(0deg)'
+                        'msTransform': 'scale(1) rotate(0deg)',
+                        'transform': 'scale(1) rotate(0deg)'
                     }).show();
                     $('.ss-slide:last').removeClass('notrans').css({
                         'webkitTransform': 'scale(1.3) translate(0,0)',
-                            'msTransform': 'scale(1.3) translate(0,0)',
-                            'transform': 'scale(1.3) translate(0,0)'
+                        'msTransform': 'scale(1.3) translate(0,0)',
+                        'transform': 'scale(1.3) translate(0,0)'
                     });
                 });
             }
@@ -233,19 +252,19 @@
                 paginateForwards();
                 $('.ss-slide:eq(-2)').addClass('notrans').css({
                     'webkitTransform': 'scale(1.3) translate(0, 10%)',
-                        'msTransform': 'scale(1.3) translate(0, 10%)',
-                        'transform': 'scale(1.3) translate(0, 10%)'
+                    'msTransform': 'scale(1.3) translate(0, 10%)',
+                    'transform': 'scale(1.3) translate(0, 10%)'
                 });
-                $('.ss-slide:last').addClass('notrans').fadeOut("slow", function () {
+                $('.ss-slide:last').addClass('notrans').fadeOut("slow", function() {
                     $(this).prependTo('.ss-slides').removeClass('notrans').css({
                         'webkitTransform': 'scale(1) rotate(0deg)',
-                            'msTransform': 'scale(1) rotate(0deg)',
-                            'transform': 'scale(1) rotate(0deg)'
+                        'msTransform': 'scale(1) rotate(0deg)',
+                        'transform': 'scale(1) rotate(0deg)'
                     }).show();
                     $('.ss-slide:last').removeClass('notrans').css({
                         'webkitTransform': 'scale(1.3) translate(0,0)',
-                            'msTransform': 'scale(1.3) translate(0,0)',
-                            'transform': 'scale(1.3) translate(0,0)'
+                        'msTransform': 'scale(1.3) translate(0,0)',
+                        'transform': 'scale(1.3) translate(0,0)'
                     });
                 });
             }
@@ -255,63 +274,68 @@
                 paginateForwards();
                 $('.ss-slide:eq(-2)').addClass('notrans').css({
                     'webkitTransform': 'scale(1.3) translate(0, -10%)',
-                        'msTransform': 'scale(1.3) translate(0, -10%)',
-                        'transform': 'scale(1.3) translate(0, -10%)'
+                    'msTransform': 'scale(1.3) translate(0, -10%)',
+                    'transform': 'scale(1.3) translate(0, -10%)'
                 });
-                $('.ss-slide:last').addClass('notrans').fadeOut("slow", function () {
+                $('.ss-slide:last').addClass('notrans').fadeOut("slow", function() {
                     $(this).prependTo('.ss-slides').removeClass('notrans').css({
                         'webkitTransform': 'scale(1) rotate(0deg)',
-                            'msTransform': 'scale(1) rotate(0deg)',
-                            'transform': 'scale(1) rotate(0deg)'
+                        'msTransform': 'scale(1) rotate(0deg)',
+                        'transform': 'scale(1) rotate(0deg)'
                     }).show();
                     $('.ss-slide:last').removeClass('notrans').css({
                         'webkitTransform': 'scale(1.3) translate(0,0)',
-                            'msTransform': 'scale(1.3) translate(0,0)',
-                            'transform': 'scale(1.3) translate(0,0)'
+                        'msTransform': 'scale(1.3) translate(0,0)',
+                        'transform': 'scale(1.3) translate(0,0)'
                     });
                 });
             }
 
             // Start First Animation 
-            if (options.autoanimType == 'random') {
+            if (options.autoPlay == 'false') {
+                //do nothing
+            } else if (options.effect == 'random') {
                 var fns = [zoomOut, zoomIn, panRight, panLeft];
                 fns[Math.floor(Math.random() * fns.length)]();
-            } else if (options.autoanimType == 'false') {
+            } else if (options.effect == 'false') {
                 //
             } else {
-                    eval(options.autoanimType + "()");
+                eval(options.effect + "()");
             }
 
             /* Subsequent Auto Animations */
-            var fn = function () {
-                if (options.autoanimType == 'random') {
+            var fn = function() {
+                if (options.effect == 'random' && options.autoPlay == 'true') {
                     var fns = [zoomOut, zoomIn, panRight, panLeft, panUp, panDown];
                     fns[Math.floor(Math.random() * fns.length)]();
-                } else if (options.autoanimType == 'false') {
+                } else if (options.effect == 'false') {
                     //
                 } else {
-                    eval(options.autoanimType + "()");
+                    eval(options.effect + "()");
                 }
             }
-            var myInterval = setInterval(fn, options.playTimer);
+
+            // Autoplay
+            if (options.autoPlay == 'true') {
+                var myInterval = setInterval(fn, options.duration);
+            }
 
             /* Pause On Hover */
-            $('#ss-prev, #ss-next, .ss-paginate').hover(function (ev) {
+            $('#ss-prev, #ss-next, .ss-paginate').hover(function(ev) {
                 clearInterval(myInterval);
-            }, function (ev) {
-                myInterval = setInterval(fn, options.playTimer);
+            }, function(ev) {
+                myInterval = setInterval(fn, options.duration);
             });
 
             /* Next Button */
-            var quickNext = function () {
+            var quickNext = function() {
                 $('#ss-next').off('click');
-                $('.ss-slide:last').addClass('notrans').fadeOut('250', function () {
+                $('.ss-slide:last').addClass('notrans').fadeOut('250', function() {
                     $('.ss-slide:last').prependTo('.ss-slides').removeClass('notrans').css({
                         'webkitTransform': 'scale(1) rotate(0deg)',
-                            'msTransform': 'scale(1) rotate(0deg)',
-                            'transform': 'scale(1) rotate(0deg)'
-                            ,
-                            'opacity': '1'
+                        'msTransform': 'scale(1) rotate(0deg)',
+                        'transform': 'scale(1) rotate(0deg)',
+                        'opacity': '1'
                     }).show();
                     $('#ss-next').on("click", quickNext);
                 });
@@ -323,7 +347,7 @@
             $('#ss-next').on("click", quickNext);
 
             /* Previous Button */
-            var quickPrev = function () {
+            var quickPrev = function() {
                 $('#ss-prev').off('click');
                 if ($('.ss-slide:first').attr('title')) {
                     var caption = $('.ss-slide:first').attr('title');
@@ -339,40 +363,39 @@
             $('#ss-prev').on("click", quickPrev);
 
             /* Paginator */
-            $(document.body).on('click', '.ss-paginate a', function (event) {
-                var whichClicked = ($(this).index())+1,
-                    currentSlide = ($('.ss-current').index())+1;
+            $(document.body).on('click', '.ss-paginate a', function(event) {
+                var whichClicked = ($(this).index()) + 1,
+                    currentSlide = ($('.ss-current').index()) + 1;
                 if (whichClicked < currentSlide) {
-                  var iterate = currentSlide - whichClicked;
-                  for(var i = 0; i < iterate; i++) {
-                    $('.ss-slide:first').appendTo('.ss-slides').removeClass('notrans').css({
-                        'webkitTransform': 'scale(1) rotate(0deg)',
+                    var iterate = (currentSlide - whichClicked);
+                    for (var i = 0; i < iterate; i++) {
+                        $('.ss-slide:first').appendTo('.ss-slides').removeClass('notrans').css({
+                            'webkitTransform': 'scale(1) rotate(0deg)',
                             'msTransform': 'scale(1) rotate(0deg)',
                             'transform': 'scale(1) rotate(0deg)'
-                    }).show();
-                    $('.ss-current').removeClass();
-                    $('.ss-paginate a').eq(whichClicked-1).addClass('ss-current');
-                  }
+                        }).show();
+                        $('.ss-current').removeClass();
+                        $('.ss-paginate a').eq(whichClicked - 1).addClass('ss-current');
+                    }
 
-                  
-                } else if(whichClicked > currentSlide){
-                  var iterate = whichClicked - currentSlide;
-                  for(var i = 0; i < iterate; i++) {
-                    $('.ss-slide:last').prependTo('.ss-slides').removeClass('notrans').css({
-                        'webkitTransform': 'scale(1) rotate(0deg)',
+                } else if (whichClicked > currentSlide) {
+                    var iterate = whichClicked - currentSlide;
+                    for (var i = 0; i < iterate; i++) {
+                        $('.ss-slide:last').prependTo('.ss-slides').removeClass('notrans').css({
+                            'webkitTransform': 'scale(1) rotate(0deg)',
                             'msTransform': 'scale(1) rotate(0deg)',
                             'transform': 'scale(1) rotate(0deg)',
-                            'display':'none'
-                    }).show();
-                    $('.ss-current').removeClass();
-                    $('.ss-paginate a').eq(whichClicked-1).addClass('ss-current');
-                  }
+                            'display': 'none'
+                        }).show();
+                        $('.ss-current').removeClass();
+                        $('.ss-paginate a').eq(whichClicked - 1).addClass('ss-current');
+                    }
                 }
                 if ($('.ss-slide:last').attr('title')) {
                     var caption = $('.ss-slide:last').attr('title');
                     $('.ss-caption').html(caption).fadeIn(500);
                 } else {
-                    $('.ss-caption').fadeOut(500, function () {
+                    $('.ss-caption').fadeOut(500, function() {
                         $('.ss-caption').empty();
                     });
                 }

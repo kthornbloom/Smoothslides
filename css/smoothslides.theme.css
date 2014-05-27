@@ -7,12 +7,15 @@
     text-align: center;
 }
 .ss-caption {
-    background: #fff; 
-    border-radius:4px;
-    color:#444;    
-    padding:15px 10px;
-    font-family:sans-serif;
-    font-size:16px;
+    border-radius: 4px;
+    color: #FFF;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px rgba(41, 41, 41, 0.89);
+    font-weight: bold;
+    padding: 15px 10px;
+    font-family: sans-serif;
+    font-size: 16px;
     display: inline-block;
 }
 
@@ -64,7 +67,8 @@
     text-decoration: none;
     border-radius: 17px;
     text-align: center;
-    border:2px solid #fff;
+    box-shadow:0 0 0 2px #fff;
+    -webkit-transition:all .2s ease-out;
 }
 #ss-prev:hover, #ss-next:hover {
     color:#444;

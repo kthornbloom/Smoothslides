@@ -40,9 +40,14 @@ A responsive jQuery slideshow with beautiful panning effects on each image. Crea
 		<td><b>Values</b></td>
 	</tr>
 	<tr>
-		<td>playTimer</td>
-		<td>Time (in milliseconds) each slide is visible for</td>
+		<td>duration</td>
+		<td>Time in milliseconds (1 second = 1000 ms) each slide is visible for</td>
 		<td>3000</td>
+	</tr>
+	<tr>
+		<td>autoPlay</td>
+		<td>Allow slideshow to play automatically</td>
+		<td>'true' or 'false'</td>
 	</tr>
 	<tr>
 		<td>order</td>
@@ -50,7 +55,12 @@ A responsive jQuery slideshow with beautiful panning effects on each image. Crea
 		<td>'normal' , 'reverse' or 'random'</td>
 	</tr>
 	<tr>
-		<td>animEasing</td>
+		<td>effect</td>
+		<td>Animation to be used while automatically playing</td>
+		<td>'random', 'zoomIn', 'zoomOut', 'panLeft', 'panRight', 'panUp', 'panDown', 'crossFade','none'</td>
+	</tr>
+	<tr>
+		<td>effectEasing</td>
 		<td>CSS3 easing type for animations</td>
 		<td>'ease-in-out'</td>
 	</tr>
@@ -79,11 +89,7 @@ A responsive jQuery slideshow with beautiful panning effects on each image. Crea
 		<td>Show dots representing slides?</td>
 		<td>'true' or 'false'</td>
 	</tr>
-	<tr>
-		<td>autoanimType</td>
-		<td>Animation to be used while automatically playing</td>
-		<td>'random', 'zoomIn', 'zoomOut', 'panLeft', 'panRight', 'panUp', 'panDown', 'crossFade','none'</td>
-	</tr>
+	
 </tbody></table>
 
 ##Licensing
