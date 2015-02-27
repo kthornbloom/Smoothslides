@@ -13,7 +13,7 @@ A responsive jQuery slideshow with beautiful panning effects on each image. Crea
 	<script type="text/javascript">
 		$(window).load( function() {
 			$(document).smoothSlides({
-			playTimer: 4000
+			duration: 4000
 			/* options seperated by commas */
 			});
 		});
