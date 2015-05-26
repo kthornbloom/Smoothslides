@@ -1,5 +1,5 @@
 /*
- * Smoothslides
+ * Smoothslides V1.0.0
  * http://kthornbloom.com/smoothslides.php
  *
  * Copyright 2014, Kevin Thornbloom
