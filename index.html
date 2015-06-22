@@ -1,69 +1,237 @@
 <!doctype html>
 <html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=0;">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta charset='utf-8'> 
 <head>
 <!--[if lt IE 9]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-
-<!-- META ===================================================== --> 
     <title>Smoothslides Demo</title> 
-    <meta name="description" content="A lightweight and dead simple lightbox script"> 
-
-<!-- Favicon  ========================================== --> 
-	<link rel="icon" href="favicon.ico">
-
-<!-- CSS ====================================================== --> 
+    <meta name="A responsive jQuery slideshow with beautiful panning effects">
 	<link rel="stylesheet" href="css/smoothslides.theme.css">
-	<!-- Demo CSS (don't use) -->
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,900|Source+Code+Pro' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/stylesheet.css">
 </head>
 <body>
-<header>
-	<div class="head-centering">
-<h1>Smoothslides</h1>
-<i>?</i> A responsive jQuery slideshow with beautiful panning effects on each image. Created by <a href="https://twitter.com/kthornbloom" target="_blank">Kevin Thornbloom</a>
-	</div>
+<nav>
+	<a href="#top">Home</a>
+	<a href="#demo">Demo</a>
+	<a href="#quickstart">Quick Start</a>
+	<a href="#advanced">Advanced</a>
+	<a href="#help">Help</a>
+</nav>
+<div class="sidebar">
+</div>
+<div class="main">
+<header id="top">
+	<h1>Smoothslides</h1>
+	By Kevin Thornbloom<br>
+	A responsive jQuery slideshow with beautiful panning effects.
 </header>
 
-<div class="demo-centering">
-	<!-- markup for slideshow -->
-	<div class="ss-slides">
-	    <div class="ss-slide">
-	        <img src="images/1.jpg"/>
-	    </div>
-	    <div class="ss-slide" title="macro.">
-	        <img src="images/2.jpg" />
-	    </div>
-	    <div class="ss-slide" title="Who brought smores?">
-	        <img src="images/3.jpg" />
-	    </div>
-	    <div class="ss-slide" title="">
-	        <img src="images/4.jpg" />
-	    </div>
-	    <div class="ss-slide" title="Waves">
-	        <img src="images/5.jpg" />
-	    </div>
-	    
+<section id="demo">
+	<div class="center">
+		<div class="smoothslides" id="myslideshow1">
+			<img src="images/1.jpg" alt="Leaf"/>
+			<img src="images/2.jpg" alt="Mountain"/>
+			<img src="images/3.jpg" alt="Tree"/>
+			<img src="images/4.jpg" alt="Sky"/>
+		</div>
 	</div>
+</section>
+
+<section id="quickstart">
+	<div class="center">
+	<h1>Quick Start</h1>
+	<div style="text-align:center">
+	<a class="button" href="https://github.com/kthornbloom/Smoothslides/archive/master.zip">Download</a>
+	<a class="button" href="https://github.com/kthornbloom/Smoothslides">View On Github</a>
+	</div>
+	<br><br>
+	<b>1)</b> Include CSS in your website's header
+<xmp><link rel="stylesheet" href="css/smoothslides.theme.css"></xmp><br>
+	<b>2)</b> Add your images to a div with a class of smoothslides. Also give the div a unique ID to differentiate it from other Smoothslides on the page.
+<xmp><div class="smoothslides" id="myslideshow1">
+	<img src="images/1.jpg"/>
+	<img src="images/2.jpg"/>
+	<img src="images/3.jpg"/>
+	<img src="images/4.jpg"/>
+</div></xmp><br>
+<b>3)</b> Add the javascript file <i>after</i> you have included jQuery, preferrably in your footer. Then call the smoothslides plugin using the unique ID you gave your div.
+<xmp><script type="text/javascript" src="js/smoothslides-2.0.0.min.js"></script>
+<script type="text/javascript">
+	$(window).load( function() {
+		$('#myslideshow1').smoothSlides();
+	});
+</script></xmp>
+	</div>
+</section>
+
+<section id="advanced">
+	<div class="center">
+	<h1>Advanced Usage</h1>
+	<b>Multiple Instances:</b><br> You may use different instances of this plugin on the same page, and each instance can have its own settings. Simply give each a unique id, and call each one seperately in the footer.
+<xmp><script type="text/javascript">
+	$(window).load( function() {
+		$('#example-one').smoothSlides();
+		$('#example-two').smoothSlides();
+	});
+</script></xmp>
+
+
+	<b>Settings:</b><br> Smoothslides has several settings that can be used to customize the slideshow. The options are set when calling the plugin. End each line with a comma, except the last one. Refer to the table below for available settings.
+<xmp><script type="text/javascript">
+	$(window).load( function() {
+	$('#myslideshow1').smoothSlides({
+		effectDuration: 6000,
+		effect: 'zoomIn'
+		/* no comma on last option */
+		});
+	});
+</script></xmp>
+<div class="table-overflow">
+<div class="table-wrap">
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Available Options</th>
+				<th>Default</th>
+			</tr>
+		</thead>
+		<tr>
+			<td>effectDuration</td>
+			<td>Length of time in milliseconds for the effect</td>
+			<td>User Specified</td>
+			<td>6000</td>
+		</tr>
+		<tr>
+			<td>transitionDuration</td>
+			<td>Length of time in milliseconds for the fade between slides</td>
+			<td>User Specified</td>
+			<td>500</td>
+		</tr>
+		<tr>
+			<td>autoPlay</td>
+			<td>Option to automatically start playing on page load</td>
+			<td>'true' or 'false'</td>
+			<td>'true'</td>
+		</tr>
+		<tr>
+			<td>effect</td>
+			<td>Type of panning effect used.</td>
+			<td>'crossFade' 'zoomOut' zoomIn' 'panUp' 'panDown' 'panLeft' 'panRight' 'diagTopLeftToBottomRight' 'diagTopRightToBottomLeft' 'diagBottomRightToTopLeft' 'diagBottomLeftToTopRight'
+			<br>
+			<b>Note:</b> You may choose a subset of effects by comma seperating such as 'zoomOut,zoomIn'. </td>
+			<td>Randomly picks from all options</td>
+		</tr>
+		<tr>
+			<td>effectEasing</td>
+			<td>CSS easing used for effects</td>
+			<td>'ease' 'ease-in' 'ease-out' 'ease-in-out' 'linear'</td>
+			<td>'ease-in-out'</td>
+		</tr>
+		<tr>
+			<td>nextText</td>
+			<td>Text appearing in the next button</td>
+			<td>User Specified</td>
+			<td>' ►'</td>
+		</tr>
+		<tr>
+			<td>prevText</td>
+			<td>Text appearing in the back button</td>
+			<td>User Specified</td>
+			<td>'◄ '</td>
+		</tr>
+		<tr>
+			<td>captions</td>
+			<td>Whether or not to display captions using the image's alt tag</td>
+			<td>'true' or 'false'</td>
+			<td>'true'</td>
+		</tr>
+		<tr>
+			<td>navigation</td>
+			<td>Whether or not to display previous/next buttons</td>
+			<td>'true' or 'false'</td>
+			<td>'true'</td>
+		</tr>
+		<tr>
+			<td>pagination</td>
+			<td>Whether or not to display dots representing each slide</td>
+			<td>'true' or 'false'</td>
+			<td>'true'</td>
+		</tr>
+	</table>
+	</div>
+	</div>
+	<br>
+	<b>Selecting A Subset Of Effects:</b><br> By default, Smoothslides will randomly choose from all possible effects. If you'd like to choose from just a certain few effects, just define them in your options.
+<xmp>effect: 'zoomIn,zoomOut,panLeft,panRight'</xmp> 
+	<br>
+	<b>Custom Styling:</b><br> Smoothslides comes with a default style, but it's easy to make your own! Just edit smoothslides.theme.css to suite your needs. Check out the comments to see what's what.
+	<br><br>
+	<b>Using with Lightbox:</b><br> There is no lighbox effect included, however it's easy to add one with smoothslides. Just find your lightbox script of choice, and treat the images as you normally would with that script.
+	<br><br>
+	<b>Linking Images:</b><br> Feel free to add links on your images to make them clickable.
+	</div>
+</section>
+<section id="help">
+	<div class="center">
+	<h1>Help</h1>
+	<b>Found a bug?</b><br>Head over to the <a href="https://github.com/kthornbloom/Smoothslides/issues">Github issues page</a> and let me know about it!
+	<br><br>
+	<b>Have an idea on how to make it better?</b><br> Add a feature request on the <a href="https://github.com/kthornbloom/Smoothslides/issues">Github issues page</a>.
+	<br><br>
+	<b>Not working?</b><br>
+	<ul>
+		<li>Make sure you have included jQuery before Smoothslides</li>
+		<li>Are your paths to the css and js correct?</li>
+		<li>Do you have any broken images?</li>
+		<li>Is your code formatted correctly?</li>
+	</ul>
+	</div>
+</section>
+<section>
+	<div class="center">
+		<a class="button" href="twitter.com/kthornbloom">Follow me on Twitter</a>
+		<br><br>
+
+		<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+		<br />
+		<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Smoothslides</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Kevin Thornbloom</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+	</div>
+</section>
 </div>
 
-<div class="page">
-<br>
-<a href="https://github.com/kthornbloom/Smoothslides" class="button">Download & Docs</a>
-
 <!-- JS ======================================================= --> 
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
-	<script type="text/javascript" src="js/smoothslides.min.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/smoothslides-2.0.0.min.js"></script>
 	<script type="text/javascript">
 		/* wait for images to load */
 		$(window).load( function() {
-			$(document).smoothSlides({
-			duration: 5000
+
+			$('#myslideshow1').smoothSlides({
+			effectDuration: 3500
 			/* options seperated by commas */
 			});
+
+			$('xmp').click(function(){
+				var saveContent = $(this).html();
+				$("body").append("<input type='text' id='temp' style=''>");
+				$("#temp").val(saveContent).select();
+				document.execCommand("copy");
+				$("#temp").remove();
+				$("body").append('<div class="message">Copied To Clipboard</div>');
+				$(".message").slideDown();
+				setTimeout(function(){
+					$(".message").slideUp(function(){
+						$(this).remove();
+					});
+				}, 1000)
+			});
+
 		});
 	</script>
 </body>
