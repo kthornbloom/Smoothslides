@@ -76,16 +76,13 @@
 	left:0;
 	transform-origin:center;
 	display: block;
+	width:100%;
+	zoom: 1;
 }
 .ss-slide img{
-	max-width:100%;
 	height:auto;
+	/* max-width, or width gets set via JS */
 }
-/* needed to give height */
-.ss-slide:last-of-type {
-	position: relative;
-}
-
 /* Caption wrapper. Used for centering */
 .ss-caption-wrap {
 	position: absolute;
@@ -99,6 +96,7 @@
 /* Caption */
 .ss-caption {
 	min-height:50px;
+	background:rgb(255,255,255);
 	background: rgba(255, 255, 255, 0.87);
 	color: #5A5A5A;
 	text-shadow: 0 0 10px #fff;
@@ -112,15 +110,15 @@
 }
 
 /* Previous and Next buttons */
-a.ss-prev, a.ss-next {
+.smoothslides-on a.ss-prev, .smoothslides-on a.ss-next {
 	position: absolute;
 	bottom:5px;
 	left:5px;
 	font-size:14px;
 	line-height: 1em;
-	color:#A1A1A1!important;
+	color:#A1A1A1;
 	text-decoration: none;
-	background:rgba(255,255,255,1);
+	background:#fff;
 	width: 50px;
 	height: 50px;
 	text-align: center;
@@ -128,9 +126,10 @@ a.ss-prev, a.ss-next {
 	border-radius: 3px;
 	opacity:.5;
 	transition:.2s ease-out;
+	font-family: sans-serif;
 }
 
-a.ss-next {
+.smoothslides-on  a.ss-next {
 	left:auto;
 	right:5px;
 }
@@ -139,9 +138,9 @@ a.ss-next {
 	opacity: 1;
 }
 
-.ss-prev:hover, .ss-next:hover {
-	background:#fff;
-	color: #5A5A5A!important;
+.smoothslides-on .ss-prev:hover, .smoothslides-on .ss-next:hover {
+	background:#fff;	
+	color:#000;
 }
 
 /* Pagination wrapper. Used for centering */
@@ -162,14 +161,17 @@ a.ss-next {
 	height: 4px;
 	border-radius: 10px;
 	margin: 0 5px;
+	background:#ccc;
 	background: rgba(0,0,0,.1);
 	border: 2px solid #fff;
 	transition: .3s;
 }
 .ss-paginate a:hover {
+	background:#ddd;
 	background:rgba(0,0,0,.3);
 }
 .ss-paginate a.ss-paginate-current {
+	background:#000;
 	background: rgba(0,0,0,.5);
 }
 
@@ -187,6 +189,7 @@ a.ss-next {
 		bottom:auto;
 		top:50%;
 		margin-top:-25px;
+		color:#000;
 		background:rgba(255,255,255,.3);
 		color:#444;
 	}

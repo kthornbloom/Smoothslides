@@ -34,8 +34,10 @@ html, body {
 	margin:0 ;
 	padding:0;
 	font-family:"Lato","Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+	color:rgb(40,20,20);
 	color:rgba(40,20,20,.7);
 	line-height: 1.5em;
+	background:rgb(84, 203, 176);
 	background:rgba(84, 203, 176, 1);
 }
 nav {
@@ -64,7 +66,7 @@ nav a:link, nav a:visited {
 	color:#fff;
 }
 nav a:hover {
-	color:rgba(40,20,20,1);
+	color:rgb(40,20,20);
 }
 .main {
 	float:left;
@@ -93,19 +95,23 @@ section:nth-child(2n+1) {
 	background: #fff;
 }
 h1 {
+	font-size:30px;
 	font-size:6vw;
 	text-align: center;
 	display: block;
 	line-height: 2em;
 	font-weight: bold;
 	padding:30px 0;
+	color:rgb(84, 203, 176);
 	color:rgba(84, 203, 176, 1);
 }
 
 a:link, a:visited {
+	color:rgb(84, 203, 176);
 	color:rgba(84, 203, 176, 1);
 }
 a:hover {
+	color:rgb(53, 155, 132);
 	color:rgba(53, 155, 132, 1);
 }
 
@@ -130,11 +136,14 @@ a:hover {
 }
 a.button {
 	display:inline-block;
+	background:rgb(40,20,20);
 	background:rgba(40,20,20,.7);
 	color:#fff;
 	text-transform: uppercase;
 	letter-spacing: .1em;
+	font-size:20px;
 	font-size:1.5vw;
+	padding:10px 15px;
 	padding:1.5vw 3vw;
 	border-radius:2px;
 	transition:.3s;
@@ -142,38 +151,14 @@ a.button {
 	perspective:800;
 }
 a.button:hover {
+	background:rgb(84, 203, 176);
 	background:rgba(84, 203, 176, 1);
 }
-@keyframes poke {
-	0% {
-		transform:translateX(0px);
-	}
-	20% {
-		transform:translateX(0px);
-	}
-	40% {
-		transform:translateX(5px);
-	}
-	60% {
-		transform:translateX(0px);
-	}
-	80% {
-		transform:translateX(5px);
-	}
-	100% {
-		transform:translateX(0px);
-	}
-}
-a.button:hover:after {
-	content:' ►';
-	display: inline-block;
-	position: relative;
-	animation: poke 1s infinite;
-	padding-left:5px;
-}
 xmp {
+	display:block;
 	width:100%;
 	overflow: auto;
+	background:#6B5D5D;
 	background:repeating-linear-gradient(0deg, #6B5D5D, #6B5D5D 20px, #574F4F 20px, #574F4F 40px);
 	border:2px solid #6B5D5D;
 	color:#fff;

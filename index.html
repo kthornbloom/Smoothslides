@@ -19,6 +19,7 @@
 	<a href="#demo">Demo</a>
 	<a href="#quickstart">Quick Start</a>
 	<a href="#advanced">Advanced</a>
+	<a href="#compatibility">Compatibility</a>
 	<a href="#help">Help</a>
 </nav>
 <div class="sidebar">
@@ -59,7 +60,7 @@
 	<img src="images/4.jpg"/>
 </div></xmp><br>
 <b>3)</b> Add the javascript file <i>after</i> you have included jQuery, preferrably in your footer. Then call the smoothslides plugin using the unique ID you gave your div.
-<xmp><script type="text/javascript" src="js/smoothslides-2.0.0.min.js"></script>
+<xmp><script type="text/javascript" src="js/smoothslides-2.1.0.min.js"></script>
 <script type="text/javascript">
 	$(window).load( function() {
 		$('#myslideshow1').smoothSlides();
@@ -163,6 +164,12 @@
 			<td>'true' or 'false'</td>
 			<td>'true'</td>
 		</tr>
+		<tr>
+			<td>matchImageSize</td>
+			<td>True sets a maximum width based on your image sizes. False allows width to be greater than image size, scaling up the images.</td>
+			<td>'true' or 'false'</td>
+			<td>'true'</td>
+		</tr>
 	</table>
 	</div>
 	</div>
@@ -172,9 +179,37 @@
 	<br>
 	<b>Custom Styling:</b><br> Smoothslides comes with a default style, but it's easy to make your own! Just edit smoothslides.theme.css to suite your needs. Check out the comments to see what's what.
 	<br><br>
+	<b>Full Width:</b><br> By default, Smoothslides will only get as large as your images are. However, you can change this behaviour by setting matchImageSize to 'false'. In this mode, Smoothslides will fill the width of whatever container it is in. Images within Smoothslides will be scaled up to fill the area.<b>Note:</b> Operating at a larger size forces the browser to repaint more of the screen which can affect performance.
+	<br><br>
 	<b>Using with Lightbox:</b><br> There is no lighbox effect included, however it's easy to add one with smoothslides. Just find your lightbox script of choice, and treat the images as you normally would with that script.
 	<br><br>
 	<b>Linking Images:</b><br> Feel free to add links on your images to make them clickable.
+	</div>
+</section>
+<section id="compatibility">
+	<div class="center">
+	<h1>Compatibility</h1>
+	Smoothslides uses silky smooth CSS transitions available in the following browsers:
+	<br><br>
+	<table width="100%">
+		<tr>
+			<th>IE</th>
+			<th>Firefox</th>
+			<th>Chrome</th>
+			<th>Safari</th>
+			<th>Opera</th>
+		</tr>
+		<tr>
+			<td>10+</td>
+			<td>16+</td>
+			<td>26+</td>
+			<td>6.1+</td>
+			<td>12+</td>
+		</tr>
+	</table>
+	<br><br>
+	<b>Supporting Internet Explorer 9 and below:</b> Ensure you use a 1.x version of jQuery since version 2 does not support IE8 and down. Since CSS transitions won't be available, Smoothslides will at least use jQuery animations to provide a fade in between each slide in IE9 and down.<br><br>
+	<b>Mobile Compatibility:</b> Mobile support is generally very good.
 	</div>
 </section>
 <section id="help">
@@ -207,7 +242,7 @@
 
 <!-- JS ======================================================= --> 
 	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/smoothslides-2.0.0.min.js"></script>
+	<script type="text/javascript" src="js/smoothslides-2.1.0.min.js"></script>
 	<script type="text/javascript">
 		/* wait for images to load */
 		$(window).load( function() {
