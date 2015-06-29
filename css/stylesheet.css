@@ -131,6 +131,7 @@ a:hover {
 	width:100%;
 	padding:15px 0;
 	background:#eee;
+	font-weight:bold;
 	text-align: center;
 	display: none;
 }
