@@ -52,7 +52,7 @@
 	<br><br>
 	<b>1)</b> Include CSS in your website's header
 <xmp><link rel="stylesheet" href="css/smoothslides.theme.css"></xmp><br>
-	<b>2)</b> Add your images to a div with a class of smoothslides. Also give the div a unique ID to differentiate it from other Smoothslides on the page.
+	<b>2)</b> Add your images to a div with a class of smoothslides. Also give the div a unique ID to differentiate it from other Smoothslides on the page. Images should be the same size.
 <xmp><div class="smoothslides" id="myslideshow1">
 	<img src="images/1.jpg"/>
 	<img src="images/2.jpg"/>
@@ -225,6 +225,11 @@
 		<li>Are your paths to the css and js correct?</li>
 		<li>Do you have any broken images?</li>
 		<li>Is your code formatted correctly?</li>
+	</ul>
+	<br>
+	<b>Known Issues:</b>
+	<ul>
+		<li>Images do not appear if Smoothslides is hidden via display:none, and then later shown. Fix by changing maxWidth on line 272 of the JS file to your the pixel width of the images you are using.</li>
 	</ul>
 	</div>
 </section>
