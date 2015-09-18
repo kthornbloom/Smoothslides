@@ -1,5 +1,5 @@
 /*
-Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+Smoothslides 2.2.0 by Kevin Thornbloom is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
 */
 
 (function($) {
@@ -9,6 +9,8 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 			var defaults = {
 				effectDuration: 5000,
 				transitionDuration: 500,
+				effectModifier: 1.3,
+				order: 'normal',
 				autoPlay: 'true',
 				effect: 'zoomOut,zoomIn,panUp,panDown,panLeft,panRight,diagTopLeftToBottomRight,diagTopRightToBottomLeft,diagBottomRightToTopLeft,diagBottomLeftToTopRight',
 				effectEasing: 'ease-in-out',
@@ -40,10 +42,8 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 					$('#'+uniqueId).find('.ss-slide:last').animate({
 						'opacity':'0'
 					})
-					console.log('1');
 				} else {
 					// Fade out last with CSS
-					console.log('2');
 					$('#'+uniqueId).find('.ss-slide:last').css({
 						'transition':'all '+options.transitionDuration+'ms',
 						'opacity':'0'
@@ -71,7 +71,7 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				// Set up next
 				$(this).find('.ss-slide:eq(-2)').css({
 					'transition':'none',
-					'transform':'scale(1.2) rotate(1.5deg)'
+					'transform':'scale('+options.effectModifier+') rotate(1.5deg)'
 				});
 				setTimeout(function(){
 					// Wait for fade, then sort & animate next
@@ -101,7 +101,7 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 					});
 					$(that).find('.ss-slide:last').css({
 						'transition': 'all ' + options.effectDuration + 'ms ' + options.effectEasing +'',
-						'transform':'scale(1.3) rotate(0deg)'
+						'transform':'scale('+options.effectModifier+') rotate(0deg)'
 					});
 				}, options.transitionDuration);
 			}
@@ -110,7 +110,7 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				// Set up next
 				$(this).find('.ss-slide:eq(-2)').css({
 					'transition':'none',
-					'transform':'scale(1.3) translateX(10%)'
+					'transform':'scale('+options.effectModifier+') translateX(10%)'
 				});
 				fadeOutLast();
 				
@@ -122,7 +122,7 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 					});
 					$(that).find('.ss-slide:last').css({
 						'transition': 'all ' + options.effectDuration + 'ms ' + options.effectEasing +'',
-						'transform':'scale(1.3) translateX(0%)'
+						'transform':'scale('+options.effectModifier+') translateX(0%)'
 					});
 				}, options.transitionDuration);
 			}
@@ -132,7 +132,7 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				// Set up next
 				$(this).find('.ss-slide:eq(-2)').css({
 					'transition':'none',
-					'transform':'scale(1.3) translateX(-10%)'
+					'transform':'scale('+options.effectModifier+') translateX(-10%)'
 				});
 				setTimeout(function(){
 					// Wait for fade, then sort & animate next
@@ -142,7 +142,7 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 					});
 					$(that).find('.ss-slide:last').css({
 						'transition': 'all ' + options.effectDuration + 'ms ' + options.effectEasing +'',
-						'transform':'scale(1.3) translateX(0%)'
+						'transform':'scale('+options.effectModifier+') translateX(0%)'
 					});
 				}, options.transitionDuration);
 			}
@@ -152,7 +152,7 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				// Set up next
 				$(this).find('.ss-slide:eq(-2)').css({
 					'transition':'none',
-					'transform':'scale(1.3) translateY(10%)'
+					'transform':'scale('+options.effectModifier+') translateY(10%)'
 				});
 				setTimeout(function(){
 					// Wait for fade, then sort & animate next
@@ -162,7 +162,7 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 					});
 					$(that).find('.ss-slide:last').css({
 						'transition': 'all ' + options.effectDuration + 'ms ' + options.effectEasing +'',
-						'transform':'scale(1.3) translateY(0%)'
+						'transform':'scale('+options.effectModifier+') translateY(0%)'
 					});
 				}, options.transitionDuration);
 			}
@@ -172,7 +172,7 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				// Set up next
 				$(this).find('.ss-slide:eq(-2)').css({
 					'transition':'none',
-					'transform':'scale(1.3) translateY(-10%)'
+					'transform':'scale('+options.effectModifier+') translateY(-10%)'
 				});
 				setTimeout(function(){
 					// Wait for fade, then sort & animate next
@@ -182,7 +182,7 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 					});
 					$(that).find('.ss-slide:last').css({
 						'transition': 'all ' + options.effectDuration + 'ms ' + options.effectEasing +'',
-						'transform':'scale(1.3) translateY(0%)'
+						'transform':'scale('+options.effectModifier+') translateY(0%)'
 					});
 				}, options.transitionDuration);
 			}
@@ -192,7 +192,7 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				// Set up next
 				$(this).find('.ss-slide:eq(-2)').css({
 					'transition':'none',
-					'transform':'scale(1.3) translateY(-10%) translateX(-10%)'
+					'transform':'scale('+options.effectModifier+') translateY(-10%) translateX(-10%)'
 				});
 				setTimeout(function(){
 					// Wait for fade, then sort & animate next
@@ -202,7 +202,7 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 					});
 					$(that).find('.ss-slide:last').css({
 						'transition': 'all ' + options.effectDuration + 'ms ' + options.effectEasing +'',
-						'transform':'scale(1.3) translateY(0%) translateX(0%)'
+						'transform':'scale('+options.effectModifier+') translateY(0%) translateX(0%)'
 					});
 				}, options.transitionDuration);
 			}
@@ -212,7 +212,7 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				// Set up next
 				$(this).find('.ss-slide:eq(-2)').css({
 					'transition':'none',
-					'transform':'scale(1.3) translateY(10%) translateX(10%)'
+					'transform':'scale('+options.effectModifier+') translateY(10%) translateX(10%)'
 				});
 				setTimeout(function(){
 					// Wait for fade, then sort & animate next
@@ -222,7 +222,7 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 					});
 					$(that).find('.ss-slide:last').css({
 						'transition': 'all ' + options.effectDuration + 'ms ' + options.effectEasing +'',
-						'transform':'scale(1.3) translateY(0%) translateX(0%)'
+						'transform':'scale('+options.effectModifier+') translateY(0%) translateX(0%)'
 					});
 				}, options.transitionDuration);
 			}
@@ -232,7 +232,7 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				// Set up next
 				$(this).find('.ss-slide:eq(-2)').css({
 					'transition':'none',
-					'transform':'scale(1.3) translateY(-10%) translateX(10%)'
+					'transform':'scale('+options.effectModifier+') translateY(-10%) translateX(10%)'
 				});
 				setTimeout(function(){
 					// Wait for fade, then sort & animate next
@@ -242,7 +242,7 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 					});
 					$(that).find('.ss-slide:last').css({
 						'transition': 'all ' + options.effectDuration + 'ms ' + options.effectEasing +'',
-						'transform':'scale(1.3) translateY(0%) translateX(0%)'
+						'transform':'scale('+options.effectModifier+') translateY(0%) translateX(0%)'
 					});
 				}, options.transitionDuration);
 			}
@@ -252,7 +252,7 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				// Set up next
 				$(this).find('.ss-slide:eq(-2)').css({
 					'transition':'none',
-					'transform':'scale(1.3) translateY(10%) translateX(-10%)'
+					'transform':'scale('+options.effectModifier+') translateY(10%) translateX(-10%)'
 				});
 				setTimeout(function(){
 					// Wait for fade, then sort & animate next
@@ -262,7 +262,7 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 					});
 					$(that).find('.ss-slide:last').css({
 						'transition': 'all ' + options.effectDuration + 'ms ' + options.effectEasing +'',
-						'transform':'scale(1.3) translateY(0%) translateX(0%)'
+						'transform':'scale('+options.effectModifier+') translateY(0%) translateX(0%)'
 					});
 				}, options.transitionDuration);
 			}
@@ -280,10 +280,17 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				$(this).wrap('<div class="ss-slide"></div>');
 			});
 			
-			// Correct order
-			$('#'+ uniqueId +' .ss-slide').each(function() {
-				$(this).prependTo('#'+uniqueId);
-			});
+			// Function to randomize things. (used below)
+			$.fn.smoothslidesRandomize=function(a){(a?this.find(a):this).parent().each(function(){$(this).children(a).sort(function(){return Math.random()-0.5}).detach().appendTo(this)});return this};
+
+			// Set slide order
+			if (options.order == "random") {
+				$('#'+ uniqueId +'').smoothslidesRandomize('.ss-slide');
+			} else {
+				$('#'+ uniqueId +' .ss-slide').each(function() {
+					$(this).prependTo('#'+uniqueId);
+				});
+			}
 
 			// Set one as relative for height
 			$('#'+uniqueId+' .ss-slide:first').css('position','relative');
@@ -385,6 +392,9 @@ Smoothslides 2.1.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				// Crapbag (<=IE9) detector
 				if (document.all && !window.atob){
 					that.crossFade();
+				} else if ($('#' + uniqueId).find('.ss-slide:eq(-2) img').attr('data-effect')){
+					var selectedEffect = $('#' + uniqueId).find('.ss-slide:eq(-2) img').attr('data-effect');
+					that[selectedEffect]();
 				} else {
 					effectArray = options.effect.split(',');
 					var effect = effectArray[Math.floor(Math.random() * effectArray.length)];
