@@ -4,6 +4,7 @@ A responsive jQuery slideshow with beautiful Ken Burns type effects on each imag
 <a href="http://kthornbloom.github.io/Smoothslides/" target="_blank">Demo & Docs</a>
 
 #Updates
+
 V2.2.0
 * New option - order
 * New option - effectModifier
