@@ -5,6 +5,9 @@ A responsive jQuery slideshow with beautiful Ken Burns type effects on each imag
 
 #Updates
 
+V2.2.1
+* Fixed bug where effectModifier caused some images to go off screen
+
 V2.2.0
 * New option - order
 * New option - effectModifier
