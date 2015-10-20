@@ -26,7 +26,8 @@ Smoothslides 2.2.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				that = this,
 				uniqueId = $(this).attr('id'),
 				fullTime= options.effectDuration + options.transitionDuration,
-				maxWidth = $(this).find('img').width()
+				maxWidth = $(this).find('img').width(),
+				effectModPercent = ((options.effectModifier * 100)-100)*.25;
 
 			if (options.transitionDuration >= options.effectDuration) {
 				console.log("Make sure effectDuration is greater than transitionDuration");
@@ -110,7 +111,7 @@ Smoothslides 2.2.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				// Set up next
 				$(this).find('.ss-slide:eq(-2)').css({
 					'transition':'none',
-					'transform':'scale('+options.effectModifier+') translateX(10%)'
+					'transform':'scale('+options.effectModifier+') translateX('+effectModPercent+'%)'
 				});
 				fadeOutLast();
 				
@@ -132,7 +133,7 @@ Smoothslides 2.2.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				// Set up next
 				$(this).find('.ss-slide:eq(-2)').css({
 					'transition':'none',
-					'transform':'scale('+options.effectModifier+') translateX(-10%)'
+					'transform':'scale('+options.effectModifier+') translateX(-'+effectModPercent+'%)'
 				});
 				setTimeout(function(){
 					// Wait for fade, then sort & animate next
@@ -152,7 +153,7 @@ Smoothslides 2.2.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				// Set up next
 				$(this).find('.ss-slide:eq(-2)').css({
 					'transition':'none',
-					'transform':'scale('+options.effectModifier+') translateY(10%)'
+					'transform':'scale('+options.effectModifier+') translateY('+effectModPercent+'%)'
 				});
 				setTimeout(function(){
 					// Wait for fade, then sort & animate next
@@ -172,7 +173,7 @@ Smoothslides 2.2.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				// Set up next
 				$(this).find('.ss-slide:eq(-2)').css({
 					'transition':'none',
-					'transform':'scale('+options.effectModifier+') translateY(-10%)'
+					'transform':'scale('+options.effectModifier+') translateY(-'+effectModPercent+'%)'
 				});
 				setTimeout(function(){
 					// Wait for fade, then sort & animate next
@@ -192,7 +193,7 @@ Smoothslides 2.2.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				// Set up next
 				$(this).find('.ss-slide:eq(-2)').css({
 					'transition':'none',
-					'transform':'scale('+options.effectModifier+') translateY(-10%) translateX(-10%)'
+					'transform':'scale('+options.effectModifier+') translateY(-'+effectModPercent+'%) translateX(-'+effectModPercent+'%)'
 				});
 				setTimeout(function(){
 					// Wait for fade, then sort & animate next
@@ -212,7 +213,7 @@ Smoothslides 2.2.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				// Set up next
 				$(this).find('.ss-slide:eq(-2)').css({
 					'transition':'none',
-					'transform':'scale('+options.effectModifier+') translateY(10%) translateX(10%)'
+					'transform':'scale('+options.effectModifier+') translateY('+effectModPercent+'%) translateX('+effectModPercent+'%)'
 				});
 				setTimeout(function(){
 					// Wait for fade, then sort & animate next
@@ -232,7 +233,7 @@ Smoothslides 2.2.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				// Set up next
 				$(this).find('.ss-slide:eq(-2)').css({
 					'transition':'none',
-					'transform':'scale('+options.effectModifier+') translateY(-10%) translateX(10%)'
+					'transform':'scale('+options.effectModifier+') translateY(-'+effectModPercent+'%) translateX('+effectModPercent+'%)'
 				});
 				setTimeout(function(){
 					// Wait for fade, then sort & animate next
@@ -252,7 +253,7 @@ Smoothslides 2.2.0 by Kevin Thornbloom is licensed under a Creative Commons Attr
 				// Set up next
 				$(this).find('.ss-slide:eq(-2)').css({
 					'transition':'none',
-					'transform':'scale('+options.effectModifier+') translateY(10%) translateX(-10%)'
+					'transform':'scale('+options.effectModifier+') translateY('+effectModPercent+'%) translateX(-'+effectModPercent+'%)'
 				});
 				setTimeout(function(){
 					// Wait for fade, then sort & animate next
