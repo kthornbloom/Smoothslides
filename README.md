@@ -1,5 +1,5 @@
 #Smoothslides
-A responsive jQuery slideshow with beautiful Ken Burns type effects on each image. Created by <a href="https://twitter.com/kthornbloom" target="_blank">Kevin Thornbloom</a>
+A responsive jQuery slideshow with beautiful Ken Burns type effects on each image. 
 <br>
 <a href="http://kthornbloom.github.io/Smoothslides/" target="_blank">Demo & Docs</a>
 
